@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Authors>Pietro Terracciano</Authors>
+        <Description>Kozmos is a high-performance C# framework based on .NET that enables rapid development of cross-platform desktop, mobile, and web applications</Description>
+        <Copyright>Copyright (c) 2026 Pietro Terracciano. All rights reserved</Copyright>
+        <Company>Pietro Terracciano</Company>
+        <PackageProjectUrl>https://github.com/pietroterracciano/Kozmos</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/pietroterracciano/Kozmos.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>csharp;dotnet;dotnet8;framework;utility;helpers;high-performance;low-level;unsafe;extensions;converters;parsing;optimization;pietro-terracciano;pietroterracciano</PackageTags>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Library</OutputType>
+        <ImplicitUsings>disabled</ImplicitUsings>
+        <CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>
+        <Nullable>enable</Nullable>
+        <Configurations>Debug;Release</Configurations>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Version>0.26.6.18</Version>
+        <ReleaseVersion>0.26.6.18</ReleaseVersion>
+        <SynchReleaseVersion>false</SynchReleaseVersion>
+        <PackageId>Kozmos</PackageId>
+        <AssemblyName>Kozmos</AssemblyName>
+        <RootNamespace>Kozmos</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <Optimize>false</Optimize>
+        <WarningLevel>4</WarningLevel>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <Optimize>true</Optimize>
+        <WarningLevel>0</WarningLevel>
+        <DebugSymbols>true</DebugSymbols>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Helpers\" />
+    <None Remove="Extensions\" />
+    <None Remove="Collections\" />
+    <None Remove="Collections\Generic\" />
+    <None Remove="Collections\Generic\Interfaces\" />
+    <None Remove="Enums\" />
+    <None Remove="Constants\" />
+    <None Remove="Types\" />
+    <None Remove="Options\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Collections\" />
+    <Folder Include="Collections\Generic\" />
+    <Folder Include="Collections\Generic\Interfaces\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Types\" />
+    <Folder Include="Options\" />
+  </ItemGroup>
+</Project>
