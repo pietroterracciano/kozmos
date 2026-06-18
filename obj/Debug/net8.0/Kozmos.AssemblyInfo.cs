@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Kozmos is a high-performance C# framework based on .NET that enables rapid develo" +
     "pment of cross-platform desktop, mobile, and web applications")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.26.6.18")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.26.6.18+ed693703d5c45d14d646dfeb2026ca07562d8bae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.26.6.18+fc513b396ab91360c7900b6a6152e7aaed989508")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kozmos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kozmos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.26.6.18")]
