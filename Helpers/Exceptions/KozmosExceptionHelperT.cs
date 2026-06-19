@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 
-namespace Kozmos.Helpers
+namespace Kozmos.Helpers.Exceptions
 {
 	public static class KozmosExceptionHelper<T>
 	{

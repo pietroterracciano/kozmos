@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using Kozmos.Constants;
 
-namespace Kozmos.Helpers
+namespace Kozmos.Helpers.Exceptions
 {
 	public static class KozmosExceptionHelper
 	{
@@ -13,23 +13,6 @@ namespace Kozmos.Helpers
 			KozmosArgumentNullExceptionHelper.ThrowIfNull(func);
 			try { return func.Invoke(context); } catch { return default(TResult); }
 		}
-
-        [DoesNotReturn]
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        internal static void ThrowValue_0_OfArgument_1_2_IsNotSupported<TValue>
-        (
-            TValue? value,
-            [CallerArgumentExpression(nameof(value))] String? argumentName = null
-        )
-        {
-            KozmosArgumentExceptionHelper.Throw
-            (
-                KozmosMessages.Exceptions.Value_0_OfArgument_1_2_IsNotSupported,
-                value?.ToString() ?? KozmosStrings.Null,
-                argumentName ?? KozmosStrings.Null,
-                KozmosTypeHelper.TryGetFullNameOrName(value, out String valueTypeName) ? valueTypeName : KozmosStrings.Null
-            );
-        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal static void ThrowValue_0_OfMember_1_2_OfArgument_3_4_IsNotSupported<TValue, TArgument>

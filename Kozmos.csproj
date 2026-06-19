@@ -47,6 +47,13 @@
     <None Remove="Constants\" />
     <None Remove="Types\" />
     <None Remove="Options\" />
+    <None Remove="Helpers\Numericals\" />
+    <None Remove="Helpers\Exceptions\" />
+    <None Remove="Helpers\Enumeratives\" />
+    <None Remove="Helpers\Collectibles\" />
+    <None Remove="Helpers\Enumerables\" />
+    <None Remove="Helpers\Cursors\" />
+    <None Remove="Extensions\Collectibles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
@@ -58,5 +65,12 @@
     <Folder Include="Constants\" />
     <Folder Include="Types\" />
     <Folder Include="Options\" />
+    <Folder Include="Helpers\Numericals\" />
+    <Folder Include="Helpers\Exceptions\" />
+    <Folder Include="Helpers\Enumeratives\" />
+    <Folder Include="Helpers\Collectibles\" />
+    <Folder Include="Helpers\Enumerables\" />
+    <Folder Include="Helpers\Cursors\" />
+    <Folder Include="Extensions\Collectibles\" />
   </ItemGroup>
 </Project>

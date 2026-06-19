@@ -2,6 +2,8 @@
 using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 using Kozmos.Constants;
+using Kozmos.Helpers.Exceptions;
+using Kozmos.Helpers.Numericals;
 
 namespace Kozmos.Helpers
 {

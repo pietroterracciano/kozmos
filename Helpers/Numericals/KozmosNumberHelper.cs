@@ -7,9 +7,10 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Kozmos.Constants;
 using Kozmos.Enums;
+using Kozmos.Helpers.Exceptions;
 using Kozmos.Options;
 
-namespace Kozmos.Helpers
+namespace Kozmos.Helpers.Numericals
 {
     public static class KozmosNumberHelper
     {
@@ -96,7 +97,7 @@ namespace Kozmos.Helpers
                     target = null; return false;
 
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     target = null; return false;
             }
         }
@@ -130,7 +131,7 @@ namespace Kozmos.Helpers
                 case Double: target = Double.MinValue; return true;
                 case null: target = null!; return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     target = null; return false;
             }
         }
@@ -220,7 +221,7 @@ namespace Kozmos.Helpers
                     target = null; return false;
 
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     target = null; return false;
             }
         }
@@ -254,8 +255,8 @@ namespace Kozmos.Helpers
                 case Double: target = Double.MaxValue; return true;
                 case null: target = null!; return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
-                    target = null; return false;
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    target = null!; return false;
             }
         }
 
@@ -303,7 +304,7 @@ namespace Kozmos.Helpers
                     return false;
 
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -330,7 +331,7 @@ namespace Kozmos.Helpers
                 case Double d: return WillOverflow<Double, TDestination>(d);
                 case null: return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -363,7 +364,7 @@ namespace Kozmos.Helpers
                 case Double d: return IsOne(d);
                 case null: return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -396,7 +397,7 @@ namespace Kozmos.Helpers
                 case Double d: return IsNotOne(d);
                 case null: return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -429,7 +430,7 @@ namespace Kozmos.Helpers
                 case Double d: return IsZero(d);
                 case null: return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -462,7 +463,7 @@ namespace Kozmos.Helpers
                 case Double d: return IsNotZero(d);
                 case null: return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -590,7 +591,7 @@ namespace Kozmos.Helpers
                     return false;
 
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -624,7 +625,7 @@ namespace Kozmos.Helpers
                     return false;
 
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -695,7 +696,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -749,7 +750,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -817,7 +818,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -871,7 +872,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -935,7 +936,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -989,7 +990,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1052,7 +1053,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1111,7 +1112,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1179,7 +1180,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1233,7 +1234,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1297,7 +1298,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1351,7 +1352,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1423,7 +1424,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1488,7 +1489,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1558,7 +1559,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1612,7 +1613,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1676,7 +1677,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1730,7 +1731,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1798,7 +1799,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1852,7 +1853,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1916,7 +1917,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -1970,7 +1971,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2038,7 +2039,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2092,7 +2093,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2156,7 +2157,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2210,7 +2211,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2278,7 +2279,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2332,7 +2333,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2396,7 +2397,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2450,7 +2451,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2518,7 +2519,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2572,7 +2573,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2636,7 +2637,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2690,7 +2691,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2760,7 +2761,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2814,7 +2815,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2878,7 +2879,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
 
@@ -2932,7 +2933,7 @@ namespace Kozmos.Helpers
                 case null: KozmosArgumentNullExceptionHelper.Throw(resultType); return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             return null;
         }
         #endregion
@@ -3036,7 +3037,7 @@ namespace Kozmos.Helpers
                     return null;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
             return null;
         }
 
@@ -3136,7 +3137,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3218,7 +3219,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3314,7 +3315,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3396,7 +3397,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3488,7 +3489,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3570,7 +3571,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3661,7 +3662,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3748,7 +3749,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3844,7 +3845,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -3926,7 +3927,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, options, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4018,7 +4019,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4100,7 +4101,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, options, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4200,7 +4201,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4296,7 +4297,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4394,7 +4395,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4476,7 +4477,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4568,7 +4569,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4650,7 +4651,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4746,7 +4747,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4828,7 +4829,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -4920,7 +4921,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5002,7 +5003,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5098,7 +5099,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5180,7 +5181,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5272,7 +5273,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5354,7 +5355,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5450,7 +5451,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5532,7 +5533,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5624,7 +5625,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5706,7 +5707,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5802,7 +5803,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5884,7 +5885,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -5976,7 +5977,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -6058,7 +6059,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, component, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -6156,7 +6157,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -6238,7 +6239,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, options, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -6330,7 +6331,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -6412,7 +6413,7 @@ namespace Kozmos.Helpers
                     b = TryConvert(source, options, out Double nd); result = b ? nd : null; return b;
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(resultType);
             result = default; return false;
         }
 
@@ -6513,7 +6514,7 @@ namespace Kozmos.Helpers
                     return IsNullable(resultType);
             }
 
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
             result = null; return false;
         }
 

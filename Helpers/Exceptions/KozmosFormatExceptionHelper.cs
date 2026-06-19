@@ -3,61 +3,58 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using Kozmos.Constants;
 
-namespace Kozmos.Helpers
+namespace Kozmos.Helpers.Exceptions
 {
-    public static class KozmosArgumentOutOfRangeExceptionHelper
-    {
+	public static class KozmosFormatExceptionHelper
+	{
         #region public static void Throw...(...)
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void Throw() { Throw(null); }
+        [DoesNotReturn]
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void Throw() { throw new FormatException(); }
 
         [DoesNotReturn]
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void Throw(String? paramName) { throw new ArgumentOutOfRangeException(paramName); }
-
-        [DoesNotReturn]
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void Throw(String? paramName, String? message)
+        public static void Throw(String? message)
         {
             if (message is not null) message = KozmosMessages.LogPrefix + KozmosStrings.Space + message;
-            throw new ArgumentOutOfRangeException(paramName, message);
+            throw new FormatException(message);
         }
 
         [DoesNotReturn]
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void Throw(String? paramName, String? message, Object? arg)
+        public static void Throw(String? message, Object? arg)
         {
             if (message is not null) message = KozmosMessages.LogPrefix + KozmosStrings.Space + message;
             KozmosStringHelper.TryFormat(message, arg, out var formatted);
-            throw new ArgumentOutOfRangeException(paramName, formatted);
+            throw new FormatException(formatted);
         }
 
         [DoesNotReturn]
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void Throw(String? paramName, String? message, Object? arg0, Object? arg1)
+        public static void Throw(String? message, Object? arg0, Object? arg1)
         {
             if (message is not null) message = KozmosMessages.LogPrefix + KozmosStrings.Space + message;
             KozmosStringHelper.TryFormat(message, arg0, arg1, out var formatted);
-            throw new ArgumentOutOfRangeException(paramName, formatted);
+            throw new FormatException(formatted);
         }
 
         [DoesNotReturn]
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void Throw(String? paramName, String? message, Object? arg0, Object? arg1, Object? arg2)
+        public static void Throw(String? message, Object? arg0, Object? arg1, Object? arg2)
         {
             if (message is not null) message = KozmosMessages.LogPrefix + KozmosStrings.Space + message;
             KozmosStringHelper.TryFormat(message, arg0, arg1, arg2, out var formatted);
-            throw new ArgumentOutOfRangeException(paramName, formatted);
+            throw new FormatException(formatted);
         }
 
         [DoesNotReturn]
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void Throw(String? paramName, String? message, params Object?[] args)
+        public static void Throw(String? message, params Object?[] args)
         {
             if (message is not null) message = KozmosMessages.LogPrefix + KozmosStrings.Space + message;
             KozmosStringHelper.TryFormat(message, args, out var formatted);
-            throw new ArgumentOutOfRangeException(paramName, formatted);
+            throw new FormatException(formatted);
         }
 
         #endregion

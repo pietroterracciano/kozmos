@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Kozmos.Constants;
 using System.Text;
 using Kozmos.Enums;
+using Kozmos.Helpers.Exceptions;
 
 namespace Kozmos.Helpers
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using Kozmos.Helpers.Exceptions;
 
 namespace Kozmos.Helpers
 {
@@ -15,20 +16,13 @@ namespace Kozmos.Helpers
 
         #endregion
 
-        #region public static Boolean IsInZeroBasedRange(...)
+        #region public static Boolean IsInZLBRange(...)
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Boolean IsInZeroBasedRange<T>(T[] value, Int32 maxBound)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(value);
-            return IsInZeroBasedRange(value.Length, maxBound);
-        }
+        public static Boolean IsInZLBRange(Int32 value, Int32 maxBound) { return maxBound > -1 && (UInt32)value <= (UInt32)maxBound; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Boolean IsInZeroBasedRange(Int32 value, Int32 maxBound) { return maxBound > -1 && (UInt32)value <= (UInt32)maxBound; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Boolean IsInZeroBasedRange(Int64 value, Int64 maxBound) { return maxBound > -1 && (UInt64)value <= (UInt64)maxBound; }
+        public static Boolean IsInZLBRange(Int64 value, Int64 maxBound) { return maxBound > -1 && (UInt64)value <= (UInt64)maxBound; }
 
         #endregion
     }

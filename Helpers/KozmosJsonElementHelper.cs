@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Kozmos.Enums;
+using Kozmos.Helpers.Numericals;
 
 namespace Kozmos.Helpers
 {

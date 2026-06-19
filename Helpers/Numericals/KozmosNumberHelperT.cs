@@ -5,9 +5,10 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Kozmos.Enums;
+using Kozmos.Helpers.Exceptions;
 using Kozmos.Options;
 
-namespace Kozmos.Helpers
+namespace Kozmos.Helpers.Numericals
 {
 	public abstract class
 		KozmosNumberHelper<T>
@@ -68,7 +69,7 @@ namespace Kozmos.Helpers
                 case Double d: return WillOverflow(d);
                 case null: return false;
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
                     return false;
             }
         }
@@ -193,7 +194,7 @@ namespace Kozmos.Helpers
                             return Convert(ui16);
                     }
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     return default;
             }
         }
@@ -540,7 +541,7 @@ namespace Kozmos.Helpers
                 case EKozmosDateOnlyComponent.Month: return Convert(source.Month);
                 case EKozmosDateOnlyComponent.Year: return Convert(source.Year);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     return default;
             }
         }
@@ -586,7 +587,7 @@ namespace Kozmos.Helpers
                 case EKozmosDateTimeComponent.Year: return Convert(source.Year);
                 case EKozmosDateTimeComponent.Ticks: return Convert(source.Ticks);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     return default;
             }
         }
@@ -632,7 +633,7 @@ namespace Kozmos.Helpers
                 case EKozmosDateTimeOffsetComponent.Year: return Convert(source.Year);
                 case EKozmosDateTimeOffsetComponent.Ticks: return Convert(source.Ticks);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     return default;
             }
         }
@@ -673,7 +674,7 @@ namespace Kozmos.Helpers
                 case EKozmosTimeOnlyComponent.Hour: return Convert(source.Hour);
                 case EKozmosTimeOnlyComponent.Ticks: return Convert(source.Ticks);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     return default;
             }
         }
@@ -722,7 +723,7 @@ namespace Kozmos.Helpers
                 case EKozmosTimeSpanComponent.Days: return Convert(source.Days);
                 case EKozmosTimeSpanComponent.TotalDays: return Convert(source.TotalDays);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     return default;
             }
         }
@@ -940,7 +941,7 @@ namespace Kozmos.Helpers
                             return TryConvert(ui16, out result);
                     }
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     result = default;
                     return false;
             }
@@ -1285,7 +1286,7 @@ namespace Kozmos.Helpers
                 case EKozmosDateOnlyComponent.Month: return TryConvert(source.Month, out result);
                 case EKozmosDateOnlyComponent.Year: return TryConvert(source.Year, out result);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     result = default; return false;
             }
         }
@@ -1331,7 +1332,7 @@ namespace Kozmos.Helpers
                 case EKozmosDateTimeComponent.Year: return TryConvert(source.Year, out result);
                 case EKozmosDateTimeComponent.Ticks: return TryConvert(source.Ticks, out result);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     result = default; return false;
             }
         }
@@ -1377,7 +1378,7 @@ namespace Kozmos.Helpers
                 case EKozmosDateTimeOffsetComponent.Year: return TryConvert(source.Year, out result);
                 case EKozmosDateTimeOffsetComponent.Ticks: return TryConvert(source.Ticks, out result);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     result = default; return false;
             }
         }
@@ -1418,7 +1419,7 @@ namespace Kozmos.Helpers
                 case EKozmosTimeOnlyComponent.Hour: return TryConvert(source.Hour, out result);
                 case EKozmosTimeOnlyComponent.Ticks: return TryConvert(source.Ticks, out result);
                 default:
-                    KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
+                    KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(component);
                     result = default; return false;
             }
         }

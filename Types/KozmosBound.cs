@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using Kozmos.Helpers;
+using Kozmos.Helpers.Exceptions;
 
 namespace Kozmos.Types
 {

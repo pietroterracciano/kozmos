@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Kozmos.Constants;
 using Kozmos.Enums;
+using Kozmos.Helpers.Collectibles;
+using Kozmos.Helpers.Exceptions;
 
 namespace Kozmos.Helpers
 {
 	public static class KozmosTypeHelper
 	{
-        #region Type
-
         #region public static Type GetType...(...)
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -56,6 +57,153 @@ namespace Kozmos.Helpers
 
         #endregion
 
+        #region public static Type GetElementType...(...)
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type GetElementType<T>() { return GetElementType(GetType<T>()); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type GetElementType(Object source) { return GetElementType(GetType(source)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type GetElementType(Type source)
+        {
+            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+            if (!source.HasElementType) KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+            return source.GetElementType()!;
+        }
+
+        #endregion
+
+        #region public static Type TryGetElementType...(...)
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetElementType<T>(out Type result)
+        {
+            if (!TryGetType<T>(out Type t)) { result = null!; return false; }
+            return TryGetElementType(t, out result);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetElementType(Object? source, out Type result)
+        {
+            if (!TryGetType(source, out Type t)) { result = null!; return false; }
+            return TryGetElementType(t, out result);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetElementType(Type? source, out Type result)
+        {
+            if(source is null || !source.HasElementType) { result = null!; return false; }
+            result = source.GetElementType()!; return true;
+        }
+
+        #endregion
+
+        #region GenericTypeArguments / GenericTypeArgument
+
+        #region GenericTypeArguments
+
+        #region public static Type[] GetGenericTypeArguments(...)
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type[] GetGenericTypeArguments<T>() { return GetGenericTypeArguments(GetType<T>()); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type[] GetGenericTypeArguments(Object source) { return GetGenericTypeArguments(GetType(source)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type[] GetGenericTypeArguments(Type source)
+        {
+            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+            if (!source.IsGenericType || source.IsGenericTypeDefinition) KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+            return source.GenericTypeArguments;
+        }
+
+        #endregion
+
+        #region public static Type TryGetGenericTypeArguments...(...)
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetGenericTypeArguments<T>(out Type[] result)
+        {
+            if (!TryGetType<T>(out Type t)) { result = null!; return false; }
+            return TryGetGenericTypeArguments(t, out result);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetGenericTypeArguments(Object? source, out Type[] result)
+        {
+            if (!TryGetType(source, out Type t)) { result = null!; return false; }
+            return TryGetGenericTypeArguments(t, out result);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetGenericTypeArguments(Type? source, out Type[] result)
+        {
+            if (source is null || !source.IsGenericType || source.IsGenericTypeDefinition) { result = null!; return false; }
+            result = source.GenericTypeArguments; return true;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region GenericTypeArgument
+
+        //#region public static Type GetFirstGenericTypeArgument(...)
+
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Type GetFirstGenericTypeArgument<T>() { return GetGenericTypeArgument(GetType<T>(), 0); }
+
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Type GetFirstGenericTypeArgument(Object source) { return GetGenericTypeArgument(GetType(source), 0); }
+
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Type GetFirstGenericTypeArgument(Type source) { return GetGenericTypeArgument(source, 0); }
+
+        //#endregion
+
+        #region public static Type GetGenericTypeArgument(...)
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type GetGenericTypeArgument<T>(Int32 index) { return GetGenericTypeArgument(GetType<T>(), index); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type GetGenericTypeArgument(Object source, Int32 index) { return GetGenericTypeArgument(GetType(source), index); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Type GetGenericTypeArgument(Type source, Int32 index) { return GetGenericTypeArguments(source)[index]; }
+
+        #endregion
+
+        #region public static Boolean TryGetGenericTypeArgument...(...)
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetGenericTypeArgument<T>(out Type result, Int32 index)
+        {
+            if (!TryGetGenericTypeArguments<T>(out Type[] ta)) { result = null!; return false; }
+            return KozmosArrayHelper.TryGetValue(ta, index, out result);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetGenericTypeArgument(Object? source, Int32 index, out Type result)
+        {
+            if (!TryGetGenericTypeArguments(source, out Type[] ta)) { result = null!; return false; }
+            return KozmosArrayHelper.TryGetValue(ta, index, out result);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean TryGetGenericTypeArgument(Type? source, Int32 index, out Type result)
+        {
+            if(!TryGetGenericTypeArguments(source, out Type[] ta)) { result = null!; return false; }
+            return KozmosArrayHelper.TryGetValue(ta, index, out result);
+        }
+
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region EType
@@ -84,7 +232,7 @@ namespace Kozmos.Helpers
         {
             KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
             if (__FetchEType(source, out EKozmosType ekt)) return ekt;
-            KozmosExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
+            KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
             return default;
         }
 

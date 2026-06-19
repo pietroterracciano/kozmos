@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using Kozmos.Constants;
 
-namespace Kozmos.Helpers
+namespace Kozmos.Helpers.Exceptions
 {
     public static class KozmosInvalidOperationExceptionHelper
     {
