@@ -38,11 +38,11 @@ namespace Kozmos.Helpers.Enumeratives
             if(a.Length < 1) return __kcsfd[source] = __ea;
 
             String c = "P";
-            Enum[] aaaa = (Enum[])KozmosArrayHelper.Convert(a, typeof(Enum));
+            //Enum[] aaaa = (Enum[])KozmosArrayHelper.Convert(a, typeof(Enum));
 
-            Enum cc = aaaa[0];
+            //Enum cc = aaaa[0];
 
-            String rpew = cc.ToString();
+            //String rpew = cc.ToString();
 
             return ea;
         }

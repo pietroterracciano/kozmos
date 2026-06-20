@@ -12,16 +12,6 @@ namespace Kozmos.Helpers.Exceptions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Throw() { Throw(null); }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static void Throw
-        (
-            Object? source,
-            [CallerArgumentExpression(nameof(source))] String? paramName = null
-        )
-        {
-            Throw(paramName);
-        }
-
         [DoesNotReturn]
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Throw(String? paramName) { throw new ArgumentOutOfRangeException(paramName); }

@@ -72,13 +72,6 @@ namespace Kozmos.Helpers.Exceptions
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ThrowIfNull<T>(T? source, [CallerArgumentExpression(nameof(source))] String? paramName = null)
-            where T : struct
-        {
-            if (!source.HasValue) Throw(paramName);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ThrowIfNull(Object? source, [CallerArgumentExpression(nameof(source))] String? paramName = null)
         {
             if (source is null) Throw(paramName);
         }

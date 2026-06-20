@@ -179,26 +179,26 @@ namespace Kozmos.Helpers
 
         #region public static Boolean TryGetGenericTypeArgument...(...)
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Boolean TryGetGenericTypeArgument<T>(out Type result, Int32 index)
-        {
-            if (!TryGetGenericTypeArguments<T>(out Type[] ta)) { result = null!; return false; }
-            return KozmosArrayHelper.TryGetValue(ta, index, out result);
-        }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Boolean TryGetGenericTypeArgument<T>(out Type result, Int32 index)
+        //{
+        //    if (!TryGetGenericTypeArguments<T>(out Type[] ta)) { result = null!; return false; }
+        //    return KozmosArrayHelper.TryGetValue(ta, index, out result);
+        //}
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Boolean TryGetGenericTypeArgument(Object? source, Int32 index, out Type result)
-        {
-            if (!TryGetGenericTypeArguments(source, out Type[] ta)) { result = null!; return false; }
-            return KozmosArrayHelper.TryGetValue(ta, index, out result);
-        }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Boolean TryGetGenericTypeArgument(Object? source, Int32 index, out Type result)
+        //{
+        //    if (!TryGetGenericTypeArguments(source, out Type[] ta)) { result = null!; return false; }
+        //    return KozmosArrayHelper.TryGetValue(ta, index, out result);
+        //}
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Boolean TryGetGenericTypeArgument(Type? source, Int32 index, out Type result)
-        {
-            if(!TryGetGenericTypeArguments(source, out Type[] ta)) { result = null!; return false; }
-            return KozmosArrayHelper.TryGetValue(ta, index, out result);
-        }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Boolean TryGetGenericTypeArgument(Type? source, Int32 index, out Type result)
+        //{
+        //    if(!TryGetGenericTypeArguments(source, out Type[] ta)) { result = null!; return false; }
+        //    return KozmosArrayHelper.TryGetValue(ta, index, out result);
+        //}
 
         #endregion
 
