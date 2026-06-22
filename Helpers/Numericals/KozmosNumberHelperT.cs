@@ -76,6 +76,23 @@ namespace Kozmos.Helpers.Numericals
 
         #endregion
 
+        #region public static Boolean IsInRange(...)
+
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Boolean IsInRange(T source, T minSource, T maxSource)
+        //{
+        //    if (minSource > maxSource) return false;
+        //    return T.CreateTruncating(source - minSource) <= T.CreateTruncating(maxSource - minSource);
+        //
+
+        public static Boolean IsInRange<T>(T source, T minSource, T maxSource)
+            where T : INumber<T> 
+        {
+            return minSource < maxSource && source >= minSource && source <= maxSource;
+        }
+
+        #endregion
+
         #region public static Boolean IsOne(...)
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

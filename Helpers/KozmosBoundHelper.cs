@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
-using Kozmos.Helpers.Exceptions;
 
 namespace Kozmos.Helpers
 {
@@ -13,6 +13,13 @@ namespace Kozmos.Helpers
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Boolean IsInRange(Int64 value, Int64 minBound, Int64 maxBound) { return minBound <= maxBound && (UInt64)value - (UInt64)minBound <= (UInt64)maxBound - (UInt64)minBound; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean IsInRange<T>(T value, T minBound, T maxBound) where T : IBinaryNumber<T>
+        {
+            if (minBound > maxBound) return false;
+            return T.CreateTruncating(value - minBound) <= T.CreateTruncating(maxBound - minBound);
+        }
 
         #endregion
 

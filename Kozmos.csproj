@@ -54,6 +54,7 @@
     <None Remove="Helpers\Enumerables\" />
     <None Remove="Helpers\Cursors\" />
     <None Remove="Extensions\Collectibles\" />
+    <None Remove="Cursors\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
@@ -72,5 +73,6 @@
     <Folder Include="Helpers\Enumerables\" />
     <Folder Include="Helpers\Cursors\" />
     <Folder Include="Extensions\Collectibles\" />
+    <Folder Include="Cursors\" />
   </ItemGroup>
 </Project>

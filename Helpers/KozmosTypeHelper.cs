@@ -13,10 +13,12 @@ namespace Kozmos.Helpers
 {
 	public static class KozmosTypeHelper
 	{
-        #region public static Type GetType...(...)
+        #region GetType / TryGetType
+
+        #region GetType
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Type GetType<T>() { return KozmosTypeHelper<T>._; }
+        public static Type GetType<T>() { return GetTypeUnsafe<T>(); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetType(Object source)
@@ -29,15 +31,20 @@ namespace Kozmos.Helpers
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Type GetType(Type source)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return source;
-        }
+        public static Type GetType(Type source) { KozmosArgumentNullExceptionHelper.ThrowIfNull(source); return GetTypeUnsafe(source); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static Type GetTypeUnsafe<T>() { return KozmosTypeHelper<T>._; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static Type GetTypeUnsafe(Object source) { if (source is Type t) return t; return source.GetType(); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static Type GetTypeUnsafe(Type source) { return source; }
 
         #endregion
 
-        #region public static Boolean TryGetType(...)
+        #region TryGetType
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Boolean TryGetType<T>(out Type result) { result = KozmosTypeHelper<T>._; return true; }
@@ -57,6 +64,8 @@ namespace Kozmos.Helpers
 
         #endregion
 
+        #endregion
+
         #region public static Type GetElementType...(...)
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -70,8 +79,17 @@ namespace Kozmos.Helpers
         {
             KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
             if (!source.HasElementType) KozmosArgumentExceptionHelper.ThrowValue_0_OfArgument_1_2_IsNotSupported(source);
-            return source.GetElementType()!;
+            return GetElementType(source);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static Type GetElementTypeUnsafe<T>() { return GetElementTypeUnsafe(GetType<T>()); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static Type GetElementTypeUnsafe(Object source) { return GetElementTypeUnsafe(GetType(source)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static Type GetElementTypeUnsafe(Type source) { return source.GetElementType()!; }
 
         #endregion
 

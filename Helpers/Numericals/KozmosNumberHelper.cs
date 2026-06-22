@@ -10,6 +10,17 @@ namespace Kozmos.Helpers.Numericals
 {
     public static class KozmosNumberHelper
     {
+        #region IsInRange
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Boolean IsInRange<T>(T source, T minSource, T maxSource)
+            where T : struct, INumber<T>
+        {
+            return KozmosNumberHelper<T>.IsInRange(source, minSource, maxSource);
+        }
+
+        #endregion
+
         #region MinValue
 
         #region public static ... GetMinValue...(...)
