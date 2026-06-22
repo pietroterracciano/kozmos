@@ -466,118 +466,118 @@ namespace Kozmos.Helpers.Collectibles
 
         #endregion
 
-        #region Copy / TryCopy
+        //#region Copy / TryCopy
 
-        #region Copy
+        //#region Copy
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T[] Copy<T>(T[] source)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return Copy_Unsafe(source);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static T[] Copy_Unsafe<T>(T[] source)
-        {
-            return Copy_Unsafe(source, 0, source.LongLength);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T[] Copy<T>(T[] source, Int64 startIndex, Int64 longLength)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return Copy_Unsafe(source, startIndex, longLength);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static T[] Copy_Unsafe<T>(T[] source, Int64 startIndex, Int64 longLength)
-        {
-            T[] destination = new T[longLength];
-            Array.Copy(source, startIndex, destination, 0L, longLength);
-            return destination;
-        }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static T[] Copy<T>(T[] source)
+        //{
+        //    KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+        //    return Copy_Unsafe(source);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //internal static T[] Copy_Unsafe<T>(T[] source)
+        //{
+        //    return Copy_Unsafe(source, 0, source.LongLength);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static T[] Copy<T>(T[] source, Int64 startIndex, Int64 longLength)
+        //{
+        //    KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+        //    return Copy_Unsafe(source, startIndex, longLength);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //internal static T[] Copy_Unsafe<T>(T[] source, Int64 startIndex, Int64 longLength)
+        //{
+        //    T[] destination = new T[longLength];
+        //    Array.Copy(source, startIndex, destination, 0L, longLength);
+        //    return destination;
+        //}
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Array Copy(Array source)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return Copy_Unsafe(source);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static Array Copy_Unsafe(Array source)
-        {
-            switch(source.Rank)
-            {
-                case 1: return Copy_Unsafe(source, source.LongLength);
-                case 2: return Copy_Unsafe(source, source.GetLongLength(0), source.GetLongLength(1));
-                case 3: return Copy_Unsafe(source, source.GetLongLength(0), source.GetLongLength(1), source.GetLongLength(2));
-                default: KozmosNotSupportedExceptionHelper.Throw(); return null;
-            }
-        }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Array Copy(Array source)
+        //{
+        //    KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+        //    return Copy_Unsafe(source);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //internal static Array Copy_Unsafe(Array source)
+        //{
+        //    switch(source.Rank)
+        //    {
+        //        case 1: return Copy_Unsafe(source, source.LongLength);
+        //        case 2: return Copy_Unsafe(source, source.GetLongLength(0), source.GetLongLength(1));
+        //        case 3: return Copy_Unsafe(source, source.GetLongLength(0), source.GetLongLength(1), source.GetLongLength(2));
+        //        default: KozmosNotSupportedExceptionHelper.Throw(); return null;
+        //    }
+        //}
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Array Copy(Array source, Int64 longLength0)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return Copy_Unsafe(source, longLength0);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static Array Copy_Unsafe(Array source, Int64 longLength0)
-        {
-            Array destination =
-                longLength0 > Int32.MaxValue
-                    ? Array.CreateInstance(GetElementType_Unsafe(source), longLength0)
-                    : Array.CreateInstance(GetElementType_Unsafe(source), (Int32)longLength0);
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Array Copy(Array source, Int64 longLength0)
+        //{
+        //    KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+        //    return Copy_Unsafe(source, longLength0);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //internal static Array Copy_Unsafe(Array source, Int64 longLength0)
+        //{
+        //    Array destination =
+        //        longLength0 > Int32.MaxValue
+        //            ? Array.CreateInstance(GetElementType_Unsafe(source), longLength0)
+        //            : Array.CreateInstance(GetElementType_Unsafe(source), (Int32)longLength0);
 
-            Array.Copy(source, 0L, destination, 0L, source.LongLength);
+        //    Array.Copy(source, 0L, destination, 0L, source.LongLength);
 
-            return destination;
-        }
-
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Array Copy(Array source, Int64 longLength0, Int64 longLength1)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return Copy_Unsafe(source, longLength0, longLength1);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static Array Copy_Unsafe(Array source, Int64 longLength0, Int64 longLength1)
-        {
-            Array destination =
-                longLength0 > Int32.MaxValue
-                || longLength1 > Int32.MaxValue
-                    ? Array.CreateInstance(GetElementType_Unsafe(source), longLength0, longLength1)
-                    : Array.CreateInstance(GetElementType_Unsafe(source), (Int32)longLength0, (Int32)longLength1);
-
-            Array.Copy(source, 0L, destination, 0L, source.LongLength);
-
-            return destination;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Array Copy(Array source, Int64 longLength0, Int64 longLength1, Int64 longLength2)
-        {
-            KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
-            return Copy_Unsafe(source, longLength0, longLength1, longLength2);
-        }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static Array Copy_Unsafe(Array source, Int64 longLength0, Int64 longLength1, Int64 longLength2)
-        {
-            Array destination =
-                longLength0 > Int32.MaxValue
-                || longLength1 > Int32.MaxValue
-                || longLength2 > Int32.MaxValue
-                    ? Array.CreateInstance(GetElementType_Unsafe(source), longLength0, longLength1, longLength2)
-                    : Array.CreateInstance(GetElementType_Unsafe(source), (Int32)longLength0, (Int32)longLength1, (Int32)longLength2);
-
-            Array.Copy(source, 0L, destination, 0L, source.LongLength);
-
-            return destination;
-        }
-
-        #endregion
+        //    return destination;
+        //}
 
 
-        #endregion
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Array Copy(Array source, Int64 longLength0, Int64 longLength1)
+        //{
+        //    KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+        //    return Copy_Unsafe(source, longLength0, longLength1);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //internal static Array Copy_Unsafe(Array source, Int64 longLength0, Int64 longLength1)
+        //{
+        //    Array destination =
+        //        longLength0 > Int32.MaxValue
+        //        || longLength1 > Int32.MaxValue
+        //            ? Array.CreateInstance(GetElementType_Unsafe(source), longLength0, longLength1)
+        //            : Array.CreateInstance(GetElementType_Unsafe(source), (Int32)longLength0, (Int32)longLength1);
+
+        //    Array.Copy(source, 0L, destination, 0L, source.LongLength);
+
+        //    return destination;
+        //}
+
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static Array Copy(Array source, Int64 longLength0, Int64 longLength1, Int64 longLength2)
+        //{
+        //    KozmosArgumentNullExceptionHelper.ThrowIfNull(source);
+        //    return Copy_Unsafe(source, longLength0, longLength1, longLength2);
+        //}
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //internal static Array Copy_Unsafe(Array source, Int64 longLength0, Int64 longLength1, Int64 longLength2)
+        //{
+        //    Array destination =
+        //        longLength0 > Int32.MaxValue
+        //        || longLength1 > Int32.MaxValue
+        //        || longLength2 > Int32.MaxValue
+        //            ? Array.CreateInstance(GetElementType_Unsafe(source), longLength0, longLength1, longLength2)
+        //            : Array.CreateInstance(GetElementType_Unsafe(source), (Int32)longLength0, (Int32)longLength1, (Int32)longLength2);
+
+        //    Array.Copy(source, 0L, destination, 0L, source.LongLength);
+
+        //    return destination;
+        //}
+
+        //#endregion
+
+
+        //#endregion
 
 
 

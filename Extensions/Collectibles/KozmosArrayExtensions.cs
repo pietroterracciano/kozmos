@@ -186,15 +186,15 @@ namespace System
 
         #region KozmosCopy
 
-        #region 1D
+        //#region 1D
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T[] KozmosCopy<T>(this T[] source)
-        {
-            return KozmosArrayHelper.Copy(source);
-        }
+        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //public static T[] KozmosCopy<T>(this T[] source)
+        //{
+        //    return KozmosArrayHelper.Copy(source);
+        //}
 
-        #endregion
+        //#endregion
 
         //#region 2D
 
@@ -244,10 +244,10 @@ namespace System
 
         //#endregion
 
-        public static Array KozmosCopy(this Array source)
-        {
-            return KozmosArrayHelper.Copy(source);
-        }
+        //public static Array KozmosCopy(this Array source)
+        //{
+        //    return KozmosArrayHelper.Copy(source);
+        //}
 
         #endregion
 
